@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 //hooks
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setEmail, setPass } from "../../app/userReducer/userSlice";
+import {
+  setEmail,
+  setLoggedUser,
+  setPass,
+} from "../../app/userReducer/userSlice";
 import { auth, register } from "../../authentication/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -23,12 +27,18 @@ const Register = () => {
   const handlePassword = (e) => {
     dispatch(setPass(e.target.value));
   };
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    register(email, password);
+    const user = await register(email, password);
+    const { uid, accessToken } = user;
+    const loggedUser = { uid, accessToken };
+    dispatch(setLoggedUser(loggedUser));
   };
 
   useEffect(() => {
+    if (isLoading) {
+      return;
+    }
     if (user) {
       navigate("/");
     }

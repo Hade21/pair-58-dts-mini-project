@@ -29,7 +29,10 @@ const auth = getAuth(app);
 const register = (email, password) => {
   const user = createUserWithEmailAndPassword(auth, email, password)
     .then((res) => res.user)
-    .catch((error) => error);
+    .catch((error) => {
+      console.log("Error code : " + error.code);
+      console.log(`"Error message : ${error.message}`);
+    });
   return user;
 };
 
@@ -37,7 +40,10 @@ const register = (email, password) => {
 const login = (email, password) => {
   const user = signInWithEmailAndPassword(auth, email, password)
     .then((res) => res.user)
-    .catch((error) => error);
+    .catch((error) => {
+      console.log("Error code : " + error.code);
+      console.log(`"Error message : ${error.message}`);
+    });
   return user;
 };
 
