@@ -1,23 +1,13 @@
 import React from "react";
-import Poster from "../../../assets/icons/MoviePoster.png";
 
-const CardMovie = (props) => {
-  const { width, height, progressBar } = props;
-
-  const progress = () => {
-    const percentage = 20;
-    console.log(percentage);
-    return (
-      <div className="bar w-5/6 h-1 bg-midgray mx-auto">
-        <div className={`progress w-[${percentage}%] h-1 bg-merah`}></div>
-      </div>
-    );
-  };
-
+const CardMovie = ({ width, height, data, key }) => {
   return (
-    <div>
-      <img src={Poster} alt="poster-movie" className={`${width} ${height}`} />
-      {progressBar ? progress : null}
+    <div className="h-0 pt-2/3 pb-2/3 relative">
+      <img
+        src={data.image}
+        alt="poster-movie"
+        className="absolute inset-0 object-cover w-full h-full rounded-lg"
+      />
     </div>
   );
 };

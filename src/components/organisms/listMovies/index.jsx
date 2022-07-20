@@ -7,8 +7,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import { CardMovie } from "../../molecule";
 
-const ListMovies = (props) => {
-  const { width, height, subtitle, progressBar } = props;
+const ListMovies = ({ subtitle, data }) => {
   return (
     <div>
       <h3 className="text-s2 font-medium font-Inter text-putih text-left mb-2">
@@ -20,33 +19,13 @@ const ListMovies = (props) => {
         navigation={true}
         modules={[Navigation]}
       >
-        <SwiperSlide>
-          <CardMovie width={width} height={height} progressBar={progressBar} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardMovie width={width} height={height} progressBar={progressBar} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardMovie width={width} height={height} progressBar={progressBar} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardMovie width={width} height={height} progressBar={progressBar} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardMovie width={width} height={height} progressBar={progressBar} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardMovie width={width} height={height} progressBar={progressBar} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardMovie width={width} height={height} progressBar={progressBar} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardMovie width={width} height={height} progressBar={progressBar} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardMovie width={width} height={height} progressBar={progressBar} />
-        </SwiperSlide>
+        {data.map((item) => {
+          return (
+            <SwiperSlide>
+              <CardMovie data={item} key={item.id} />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );

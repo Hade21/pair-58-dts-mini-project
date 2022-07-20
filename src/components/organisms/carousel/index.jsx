@@ -8,34 +8,27 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
-const Carousel = () => {
+const Carousel = ({ data }) => {
   return (
     <>
       <div className="wrapper-carousel">
         <Swiper
-          slidesPerView={1.1}
+          slidesPerView={5.2}
           centeredSlides={true}
           spaceBetween={20}
           loop={true}
+          autoplay={true}
           pagination={{ clickable: true }}
           navigation={true}
           modules={[Pagination, Navigation]}
         >
-          <SwiperSlide>
-            <CardMovieCarousel />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CardMovieCarousel />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CardMovieCarousel />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CardMovieCarousel />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CardMovieCarousel />
-          </SwiperSlide>
+          {data.map((item) => {
+            return (
+              <SwiperSlide>
+                <CardMovieCarousel data={item} key={item.id} />
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </>

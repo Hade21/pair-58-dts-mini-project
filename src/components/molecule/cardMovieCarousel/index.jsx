@@ -1,22 +1,25 @@
 import React from "react";
-import Poster from "../../../assets/icons/MoviePoster.png";
 
-const CardMovieCarousel = () => {
+const CardMovieCarousel = ({ data, id }) => {
   return (
-    <div className="wrapper flex justify-between items-center bg-indigo-900 relative">
-      <div className="overview w-5/12 text-putih text-left font-Inter px-12 z-10">
-        <h2 className="text-s2 font-bold">The Walking Dead</h2>
-        <p className="text-s5 font-normal">Horror . English . Series</p>
-        <p className="text-s5 font-light w-5/6">
-          The story of Oakland Athletics general manager Billy Beane's
-          successful attempt to put together a baseball team on a budget, by
-          employing computer-generated analysis to draft his players.
-        </p>
+    <div className="wrapper relative rounded-lg">
+      <div className="poster h-0 pt-2/3 pb-2/3 relative">
+        <img
+          src={data.image}
+          alt="poster"
+          className="absolute inset-0 object-cover w-full h-full rounded-lg"
+        />
       </div>
-      <div className="overlay absolute w-5/6 h-full top-0 left-0 bg-gradient-to-r from-indigo-900 via-indigo-900"></div>
-      <div className="poster w-7/12">
-        <img src={Poster} alt="poster" className="w-full" />
+      <div
+        className="overview text-putih font-Inter absolute bottom-0 w-full py-4 bg-gradient-to-t from-slate-700 rounded-b-lg
+      "
+      >
+        <h2 className="text-s2 font-bold">{data.title}</h2>
+        <p className="text-s4 font-normal">{data.year}</p>
       </div>
+      <p className="text-s4 font-normal text-putih font-Inter p-4 bg-merah absolute top-0 right-0 rounded-lg">
+        {data.imDbRating}
+      </p>
     </div>
   );
 };

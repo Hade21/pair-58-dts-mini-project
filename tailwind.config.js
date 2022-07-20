@@ -26,6 +26,10 @@ module.exports = {
       backgroundImage: {
         movie: "url('./assets/images/backgroundLogin.png')",
       },
+      padding: {
+        "2/3": "66.666667%",
+        "1/3": "33.333333%",
+      },
     },
   },
   plugins: [],
