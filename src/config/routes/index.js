@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Protectedcomponent from "../../components/protectedRoute/toLogin";
+import Protectedcomponent from "../../components/protectedRoute";
 
 //pages
 import Home from "../../pages/home";
