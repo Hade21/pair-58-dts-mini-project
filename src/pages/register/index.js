@@ -16,7 +16,7 @@ import { Input, Button } from "../../components";
 const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [user, isLoading, error] = useAuthState(auth);
+  const [user, isLoading] = useAuthState(auth);
 
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
@@ -42,6 +42,7 @@ const Register = () => {
     if (user) {
       navigate("/");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, navigate]);
 
   return (
