@@ -24,7 +24,7 @@ const ListMovies = ({ subtitle, data }) => {
         {data.map((item) => {
           return (
             <SwiperSlide>
-              <CardMovie data={item} key={item.id} />
+              <CardMovie data={item} key={item.id} id={item.id} />
             </SwiperSlide>
           );
         })}

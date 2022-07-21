@@ -6,7 +6,7 @@ const Button = (props) => {
     <>
       <button
         type={type}
-        className="py-8 text-center text-white bg-merah rounded font-Inter tracking-[0.16em] font-bold md:text-s2 w-full"
+        className="xl:py-8 md:py-6 py-4 shadow-sm shadow-slate-700 text-center text-white bg-merah rounded font-Inter tracking-[0.16em] font-bold xl:text-s2 md:text-s3 w-full"
         onClick={onClick}
       >
         {children}

@@ -31,7 +31,6 @@ const Home = () => {
         const topTenData = await api.get("/Top250Movies/k_9ftbt39h");
 
         if (movieData) {
-          console.log(movieData);
           dispatch(setMostPopular(movieData.data.items.slice(0, 10)));
         }
         if (seriesData) {

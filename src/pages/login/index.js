@@ -49,9 +49,12 @@ const Login = () => {
 
   return (
     <div className="bg-movie bg-left bg-no-repeat bg-cover w-full h-screen">
-      <div className="wrapper bg-gradient-to-r from-transparent via-black to-black w-full h-screen flex justify-end">
-        <div className="wrapper w-1/2 h-full flex flex-col justify-center items-center">
-          <form className="flex flex-col gap-12" onSubmit={handleLogin}>
+      <div className="wrapper bg-gradient-to-r from-transparent via-black to-black w-full h-screen flex justify-center xl:justify-end">
+        <div className="wrapper w-full xl:w-1/2 h-full flex flex-col justify-center items-center">
+          <form
+            className="flex flex-col gap-12 w-5/6 md:w-fit"
+            onSubmit={handleLogin}
+          >
             <div className="input flex flex-col gap-5">
               <Input
                 type="email"

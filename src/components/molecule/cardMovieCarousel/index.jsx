@@ -1,8 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CardMovieCarousel = ({ data, id }) => {
+  const navigate = useNavigate();
+
+  const linkToDetail = () => {
+    const endpoint = `/movie/${id}`;
+    navigate(endpoint);
+  };
+
   return (
-    <div className="wrapper relative rounded-lg cursor-pointer">
+    <div
+      className="wrapper relative rounded-lg cursor-pointer"
+      onClick={linkToDetail}
+    >
       <div className="poster h-0 pt-2/3 pb-2/3 relative">
         <img
           src={data.image}

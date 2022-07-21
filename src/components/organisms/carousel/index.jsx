@@ -28,7 +28,7 @@ const Carousel = ({ data }) => {
           {data.map((item) => {
             return (
               <SwiperSlide>
-                <CardMovieCarousel data={item} key={item.id} />
+                <CardMovieCarousel data={item} key={item.id} id={item.id} />
               </SwiperSlide>
             );
           })}

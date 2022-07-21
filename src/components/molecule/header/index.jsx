@@ -17,7 +17,6 @@ const Header = () => {
   const navigate = useNavigate;
   const [dropdown, setDropdown] = useState(false);
   const user = useSelector((state) => state.user.loggedUser);
-  console.log(user);
 
   const logoutFunc = async () => {
     try {

@@ -41,6 +41,8 @@ const TopTenList = ({ data, subtitle }) => {
                   rank={ranks[i]}
                   image={item.image}
                   title={item.title}
+                  key={item.id}
+                  id={item.id}
                 />
               </SwiperSlide>
             );

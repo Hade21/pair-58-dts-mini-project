@@ -1,8 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const TopTenCard = ({ rank, image, title }) => {
+const TopTenCard = ({ rank, image, title, id }) => {
+  const navigate = useNavigate();
+
+  const linkToDetail = () => {
+    const endpoint = `/movie/${id}`;
+    navigate(endpoint);
+  };
+
   return (
-    <div className="flex justify-start w-fit m-0 cursor-pointer">
+    <div
+      className="flex justify-start w-fit m-0 cursor-pointer"
+      onClick={linkToDetail}
+    >
       <img src={rank} alt="ranking" />
       <div className="movie relative group">
         <img src={image} alt="movie-poster" className="h-full" />

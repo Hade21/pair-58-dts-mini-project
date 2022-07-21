@@ -1,8 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const CardMovie = ({ width, height, data, key }) => {
+const CardMovie = ({ data, id }) => {
+  const navigate = useNavigate();
+
+  const linkToDetail = () => {
+    const endpoint = `/movie/${id}`;
+    navigate(endpoint);
+  };
+
   return (
-    <div className="h-0 pt-2/3 pb-2/3 relative">
+    <div
+      className="h-0 pt-2/3 pb-2/3 relative cursor-pointer"
+      onClick={linkToDetail}
+    >
       <img
         src={data.image}
         alt="poster-movie"
