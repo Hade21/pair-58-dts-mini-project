@@ -28,10 +28,14 @@ const Login = () => {
   };
   const handleLogin = async (e) => {
     e.preventDefault();
-    const user = await login(email, password);
-    const { accessToken, uid } = user;
-    const loggedUser = { uid, accessToken };
-    dispatch(setLoggedUser(loggedUser));
+    try {
+      const user = await login(email, password);
+      const { accessToken, uid, email: userEmail } = user;
+      const loggedUser = { uid, accessToken, userEmail };
+      dispatch(setLoggedUser(loggedUser));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

@@ -2,5 +2,6 @@ import Header from "./header";
 import Footer from "./footer";
 import CardMovieCarousel from "./cardMovieCarousel";
 import CardMovie from "./cardMovie";
+import TopTenCard from "./topTenCard";
 
-export { Header, Footer, CardMovieCarousel, CardMovie };
+export { Header, Footer, CardMovieCarousel, CardMovie, TopTenCard };

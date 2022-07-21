@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 const Carousel = ({ data }) => {
   return (
@@ -17,10 +17,13 @@ const Carousel = ({ data }) => {
           centeredSlides={true}
           spaceBetween={20}
           loop={true}
-          autoplay={true}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: true,
+          }}
           pagination={{ clickable: true }}
           navigation={true}
-          modules={[Pagination, Navigation]}
+          modules={[Autoplay, Pagination, Navigation]}
         >
           {data.map((item) => {
             return (

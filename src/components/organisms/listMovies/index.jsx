@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
+
+//component
 import { CardMovie } from "../../molecule";
 
 const ListMovies = ({ subtitle, data }) => {
@@ -14,8 +16,8 @@ const ListMovies = ({ subtitle, data }) => {
         {subtitle}
       </h3>
       <Swiper
-        slidesPerView={4.7}
-        spaceBetween={20}
+        slidesPerView={7.7}
+        spaceBetween={10}
         navigation={true}
         modules={[Navigation]}
       >

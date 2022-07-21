@@ -2,7 +2,7 @@ import React from "react";
 
 const CardMovieCarousel = ({ data, id }) => {
   return (
-    <div className="wrapper relative rounded-lg">
+    <div className="wrapper relative rounded-lg cursor-pointer">
       <div className="poster h-0 pt-2/3 pb-2/3 relative">
         <img
           src={data.image}
