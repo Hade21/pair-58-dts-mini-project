@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Avatar, Logo } from "../../../assets";
 import {
   faBell,
@@ -8,15 +8,16 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { logout } from "../../../authentication/firebase";
+import { auth, logout } from "../../../authentication/firebase";
 import { setLoggedUser } from "../../../app/userReducer/userSlice";
 import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate;
   const [dropdown, setDropdown] = useState(false);
-  const user = useSelector((state) => state.user.loggedUser);
+  const [user] = useAuthState(auth);
 
   const logoutFunc = async () => {
     try {
@@ -49,7 +50,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faSearch} color="white" size="lg" />
           </div>
           <p className="font-Inter font-normal text-putih text-s4">
-            {user ? user.userEmail : "Guest"}
+            {user ? user.email : "Guest"}
           </p>
           <div className="gift hidden md:block">
             <FontAwesomeIcon icon={faGift} color="white" size="lg" />

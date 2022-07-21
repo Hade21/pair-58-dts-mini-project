@@ -1,10 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Protectedcomponent from "../../components/protectedRoute/toLogin";
 
 //pages
 import Home from "../../pages/home";
 import Login from "../../pages/login";
 import DetailMovie from "../../pages/movie";
+import Profile from "../../pages/profile";
 import Register from "../../pages/register";
 
 const Router = () => {
@@ -12,9 +14,38 @@ const Router = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/movie/:id" element={<DetailMovie />} />
+        <Route
+          path="/profiles"
+          element={
+            <Protectedcomponent>
+              <Profile />
+            </Protectedcomponent>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Protectedcomponent loginOnly={false}>
+              <Login />
+            </Protectedcomponent>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Protectedcomponent loginOnly={false}>
+              <Register />
+            </Protectedcomponent>
+          }
+        />
+        <Route
+          path="/movie/:id"
+          element={
+            <Protectedcomponent loginOnly={true}>
+              <DetailMovie />
+            </Protectedcomponent>
+          }
+        />
         <Route
           path="*"
           element={
